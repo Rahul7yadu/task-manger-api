@@ -3,12 +3,14 @@ const app = express();
 require("./db/mongoose.js");
 const taskRouter = require("./routers/tasks");
 const userRouter = require("./routers/users");
+const cors = require("cors");
 
 port = process.env.PORT;
 
 app.use(express.json());
 app.use(userRouter);
 app.use(taskRouter);
+app.use(cors({origin:"*"}))
 
 app.listen(port, () => {
   console.log("server started on port " + port);
