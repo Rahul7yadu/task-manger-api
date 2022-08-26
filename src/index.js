@@ -15,7 +15,12 @@ app.use(cors({origin:"*"}))
 app.listen(port, () => {
   console.log("server started on port " + port);
 });
-
+app.get('*',(req,res)=>{
+  res.json({
+    "/users":"to create new user",
+    "tasks":"to create new task for that user"
+  })
+})
 // const Task = require("./models/tasks");
 // const User = require("./models/users");
 
